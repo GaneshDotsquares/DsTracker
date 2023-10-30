@@ -12,6 +12,7 @@ public class DSTrackerWebView: WKWebView {
         super.init(frame: .zero, configuration: webConfiguration)
         self.scrollView.isScrollEnabled = false
         self.isMultipleTouchEnabled = false
+ 
     }
     
     required init?(coder: NSCoder) {
@@ -19,11 +20,21 @@ public class DSTrackerWebView: WKWebView {
     }
 
     @discardableResult
-    public func load() -> WKNavigation? {
-        if let url = URL(string:"http://example.com") {
+  public func load(view:UIView, url:String =  "https://medium.com/") -> WKNavigation? {
+        if let url = URL(string:url) {
             let req = URLRequest(url: url)
+            addaConstraint(view: view)
             return super.load(req)
+          
         }
         return nil
     }
+  
+ private func addaConstraint(view:UIView){
+    view.addSubview(self)
+    self.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+    self.topAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    self.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+    self.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+  }
 }
