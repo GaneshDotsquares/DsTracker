@@ -8,9 +8,9 @@
 import Foundation
 
 public class DSTracker{
-  static let shared =  DSTracker()
+  public static let shared =  DSTracker()
   
-  func addPreFixWord(str:String = "")->String{
+  public func addPreFixWord(str:String = "")->String{
     return "Hello " + str
   }
 }
