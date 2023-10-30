@@ -10,7 +10,7 @@ public class DSTrackerWebView: WKWebView {
         let webConfiguration = WKWebViewConfiguration()
         webConfiguration.preferences.javaScriptEnabled = true
         super.init(frame: .zero, configuration: webConfiguration)
-        self.scrollView.isScrollEnabled = false
+        self.scrollView.isScrollEnabled = true
         self.isMultipleTouchEnabled = false
  
     }
@@ -23,7 +23,7 @@ public class DSTrackerWebView: WKWebView {
   public func load(view:UIView, url:String =  "https://medium.com/") -> WKNavigation? {
         if let url = URL(string:url) {
             let req = URLRequest(url: url)
-            addaConstraint(view: view)
+//            addaConstraint(view: view)
             return super.load(req)
           
         }
