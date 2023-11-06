@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="23A344" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Events" representedClassName="Events" syncable="YES" codeGenerationType="class">
+        <attribute name="dateTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="deviceInfo" optional="YES" attributeType="String"/>
+        <attribute name="eventDuration" optional="YES" attributeType="String"/>
+        <attribute name="eventEndTime" optional="YES" attributeType="String"/>
+        <attribute name="eventId" optional="YES" attributeType="String"/>
+        <attribute name="eventInfo" optional="YES" attributeType="String"/>
+        <attribute name="eventName" optional="YES" attributeType="String"/>
+        <attribute name="eventStartTime" optional="YES" attributeType="String"/>
+        <attribute name="evnentId" optional="YES" attributeType="String"/>
+        <attribute name="funnelId" optional="YES" attributeType="String"/>
+        <attribute name="isSync" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="location" optional="YES" attributeType="String"/>
+        <attribute name="screenName" optional="YES" attributeType="String"/>
+        <attribute name="sessionId" optional="YES" attributeType="String"/>
+        <attribute name="userId" optional="YES" attributeType="String"/>
+        <attribute name="userInfo" optional="YES" attributeType="String"/>
+        <relationship name="eventToFunnel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Funnels" inverseName="funnelToEvent" inverseEntity="Funnels"/>
+        <relationship name="eventToSession" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sessions" inverseName="sessionToEvent" inverseEntity="Sessions"/>
+    </entity>
+    <entity name="Funnels" representedClassName="Funnels" syncable="YES" codeGenerationType="class">
+        <attribute name="dateTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="deviceInfo" optional="YES" attributeType="String"/>
+        <attribute name="eventId" optional="YES" attributeType="Binary"/>
+        <attribute name="eventName" optional="YES" attributeType="String"/>
+        <attribute name="funnelDuration" optional="YES" attributeType="String"/>
+        <attribute name="funnelEndTime" optional="YES" attributeType="String"/>
+        <attribute name="funnelId" optional="YES" attributeType="String"/>
+        <attribute name="funnelStartTime" optional="YES" attributeType="String"/>
+        <attribute name="isSync" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="screenName" optional="YES" attributeType="String"/>
+        <attribute name="userId" optional="YES" attributeType="String"/>
+        <attribute name="userInfo" optional="YES" attributeType="String"/>
+        <relationship name="funnelToEvent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Events" inverseName="eventToFunnel" inverseEntity="Events"/>
+    </entity>
+    <entity name="Sessions" representedClassName="Sessions" syncable="YES" codeGenerationType="class">
+        <attribute name="dateTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="deviceInfo" optional="YES" attributeType="String"/>
+        <attribute name="eventId" optional="YES" attributeType="String"/>
+        <attribute name="eventInfo" optional="YES" attributeType="String"/>
+        <attribute name="eventName" optional="YES" attributeType="String"/>
+        <attribute name="isSync" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="sessionId" optional="YES" attributeType="String"/>
+        <attribute name="sessionName" optional="YES" attributeType="String"/>
+        <attribute name="sessionStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="userId" optional="YES" attributeType="String"/>
+        <attribute name="userInfo" optional="YES" attributeType="String"/>
+        <relationship name="sessionToEvent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Events" inverseName="eventToSession" inverseEntity="Events"/>
+    </entity>
+</model>
