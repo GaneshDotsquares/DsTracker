@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="23A344" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
-    <entity name="Events" representedClassName="Events" syncable="YES" codeGenerationType="class">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22222" systemVersion="23B74" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="CD_Events" representedClassName="CD_Events" syncable="YES">
         <attribute name="dateTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="deviceInfo" optional="YES" attributeType="String"/>
         <attribute name="eventDuration" optional="YES" attributeType="String"/>
@@ -17,10 +17,10 @@
         <attribute name="sessionId" optional="YES" attributeType="String"/>
         <attribute name="userId" optional="YES" attributeType="String"/>
         <attribute name="userInfo" optional="YES" attributeType="String"/>
-        <relationship name="eventToFunnel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Funnels" inverseName="funnelToEvent" inverseEntity="Funnels"/>
-        <relationship name="eventToSession" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sessions" inverseName="sessionToEvent" inverseEntity="Sessions"/>
+        <relationship name="eventToFunnel" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CD_Funnels" inverseName="funnelToEvent" inverseEntity="CD_Funnels"/>
+        <relationship name="eventToSession" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CD_Sessions" inverseName="sessionToEvent" inverseEntity="CD_Sessions"/>
     </entity>
-    <entity name="Funnels" representedClassName="Funnels" syncable="YES" codeGenerationType="class">
+    <entity name="CD_Funnels" representedClassName="CD_Funnels" syncable="YES">
         <attribute name="dateTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="deviceInfo" optional="YES" attributeType="String"/>
         <attribute name="eventId" optional="YES" attributeType="Binary"/>
@@ -33,9 +33,9 @@
         <attribute name="screenName" optional="YES" attributeType="String"/>
         <attribute name="userId" optional="YES" attributeType="String"/>
         <attribute name="userInfo" optional="YES" attributeType="String"/>
-        <relationship name="funnelToEvent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Events" inverseName="eventToFunnel" inverseEntity="Events"/>
+        <relationship name="funnelToEvent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CD_Events" inverseName="eventToFunnel" inverseEntity="CD_Events"/>
     </entity>
-    <entity name="Sessions" representedClassName="Sessions" syncable="YES" codeGenerationType="class">
+    <entity name="CD_Sessions" representedClassName="CD_Sessions" syncable="YES">
         <attribute name="dateTime" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="deviceInfo" optional="YES" attributeType="String"/>
         <attribute name="eventId" optional="YES" attributeType="String"/>
@@ -47,6 +47,6 @@
         <attribute name="sessionStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="userId" optional="YES" attributeType="String"/>
         <attribute name="userInfo" optional="YES" attributeType="String"/>
-        <relationship name="sessionToEvent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Events" inverseName="eventToSession" inverseEntity="Events"/>
+        <relationship name="sessionToEvent" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CD_Events" inverseName="eventToSession" inverseEntity="CD_Events"/>
     </entity>
 </model>

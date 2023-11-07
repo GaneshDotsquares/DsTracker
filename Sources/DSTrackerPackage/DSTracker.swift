@@ -10,7 +10,7 @@ import Foundation
 public class DSTracker{
   public static let shared =  DSTracker()
   private init() { }
-  
+  private var reachabilityHandler:ReachabilityHandler?
 // here managable to console logs
   public var toBeConsoleLogs = true
   
@@ -18,6 +18,10 @@ public class DSTracker{
     return "Hello " + str
   }
   public func configure(){
-    ReachabilityHandler()
+    reachabilityHandler =  ReachabilityHandler()
+  }
+  public func getDeviceInfo(){
+    print( DeviceInfo())
+     
   }
 }
